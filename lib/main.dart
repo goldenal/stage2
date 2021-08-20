@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hngig4intenship/controllers.dart';
+import 'package:hngig4intenship/bottomshhet.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
@@ -37,7 +38,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  
+  final _formkey = GlobalKey<FormState>();
   @override
   void initState(){
     super.initState();
@@ -50,53 +51,56 @@ class _MyHomePageState extends State<MyHomePage> {
 
           title: Text('Stage 2 Task'),
         ),
-        body: Container(
-          child: Column(
-            children: <Widget>[
-              Text('Adeosun Adewale Victor'),
-              SizedBox(height: 30.0,),
-              Form(child: Column(
-                children: <Widget>[
-                  textfield(true, nameController, hintText: 'Enter your name'),
-                  SizedBox(height: 10.0,),
-                  textfield(true, stackController, hintText: 'Enter your stack'),
-                ],
-              )),
+        body: new SingleChildScrollView(
+          child: Container(
+            child: Column(
+              children: <Widget>[
+                Text('Adeosun Adewale Victor'),
+                SizedBox(height: 30.0,),
+                Form(child: Column(
+                  key: _formkey,
+                  children: <Widget>[
+                    textfield(true, nameController, hintText: 'Enter your name'),
+                    SizedBox(height: 10.0,),
+                    textfield(true, stackController, hintText: 'Enter your stack'),
+                  ],
+                )),
 
-              SizedBox(height: 20.0,),
-              buildTextButton('Submit', Colors.blue.shade300, context),
-              SizedBox(height: 10.0,),
-              InkWell(
-                  child: new Text('https://internship.zuri.team/',
-                  style: TextStyle(
-                    color: Colors.red,
-                  ),),
-                  onTap: () => launch('https://internship.zuri.team/')
-              ),
-              SizedBox(height: 10.0,),
-              Container(
-              height: 60.0,
-              width: 150.0,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                image: DecorationImage(
-                    image: AssetImage('images/brand.png')
-                )
-            ),
-              ),
-              Container(
+                SizedBox(height: 20.0,),
+                buildTextButton('Submit', Colors.blue.shade300, context),
+                SizedBox(height: 10.0,),
+                InkWell(
+                    child: new Text('https://internship.zuri.team/',
+                    style: TextStyle(
+                      color: Colors.red,
+                    ),),
+                    onTap: () => launch('https://internship.zuri.team/')
+                ),
+                SizedBox(height: 10.0,),
+                Container(
                 height: 60.0,
                 width: 150.0,
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    image: DecorationImage(
-                        image: AssetImage('images/download.png')
-                    )
-                ),
+                  color: Colors.white,
+                  image: DecorationImage(
+                      image: AssetImage('images/brand.png')
+                  )
               ),
+                ),
+                Container(
+                  height: 60.0,
+                  width: 150.0,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      image: DecorationImage(
+                          image: AssetImage('images/download.png')
+                      )
+                  ),
+                ),
 
 
-            ],
+              ],
+            ),
           ),
         )
 
@@ -140,15 +144,14 @@ class _MyHomePageState extends State<MyHomePage> {
   TextButton buildTextButton(
       String title, Color backgroundColor, BuildContext context) {
 
-
     TextButton textButton;
     textButton =  TextButton(
       onPressed: (){
+        print(nameController.text);
 
-
-        setState(() {
-
-        });
+        showButtomsheet(context);
+        //
+        // }
 
         //print(user!.uid);
 

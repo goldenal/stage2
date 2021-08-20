@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hngig4intenship/controllers.dart';
 
 
-void showForgetPassword(BuildContext context){
+void showButtomsheet(BuildContext context){
   showModalBottomSheet(context: context, builder: (context){
     return Container(
       padding: EdgeInsets.symmetric(vertical: 20.0,horizontal: 60.0),
@@ -30,9 +30,15 @@ class _bottompageState extends State<bottompage> {
     return Container(
       child: Column(
         children: <Widget>[
-          Text('Your name is: $name.'),
+          Text('Your name is: $name.',
+          style: TextStyle(
+            fontSize: 25.0
+          ),),
           SizedBox(height: 30.0,),
-          Text('Your Stack is: $stackt.'),
+          Text('Your Stack is: $stackt.',
+          style: TextStyle(
+              fontSize: 25.0
+          ),),
         ],
       ),
     );
