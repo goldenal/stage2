@@ -1,6 +1,6 @@
 # hngig4intenship
 
-<img src= "display/ezgif.com-gif-maker.gif" height = "300" >
+<img src= "display/ezgif.com-gif-maker.gif" height = "500" >
 
 
 A new Flutter project.
